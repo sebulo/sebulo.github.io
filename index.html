@@ -1,357 +1,1233 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-          content="Text-Driven Stylization of Video Objects">
-    <meta name="author"
-          content="Sebastian Loeschcke, Sagie Benaim">
+<!DOCTYPE HTML>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-179752514-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <title>Text-Driven Stylization of Video Objects</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    gtag('config', 'UA-179752514-1');
+  </script>
 
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
-    <!--    <link rel="icon" href="img/favicon.gif" type="image/gif">-->
+  <title>Sebastian Bugge Loeschcke</title>
+  
+  <meta name="author" content="Sebastian Bugge Loeschcke">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="icon" type="image/png" href="images/seal_icon.png">
 </head>
 
 <body>
-<div class="jumbotron jumbotron-fluid">
-    <div class="container"></div>
-    <h2>Text-Driven Stylization of Video Objects</h2>
-    <hr>
-    <p class="authors">
-        <a href="https://sloeschcke.github.io/"> Sebastian Loeschcke<sup>1</sup></a>,
-        <a href="https://sagiebenaim.github.io/"> Sagie Benaim<sup>2</sup></a>
-    </p>
-    <p class="authors">
-  &nbsp;&nbsp; Aarhus University<sup>1</sup> University of Copenhagen<sup>2</sup>
-    </p>
-    <div class="btn-group" role="group" aria-label="Top menu">
-        <a align="center" class="btn btn-primary" href="http://arxiv.org/abs/2206.02776">Paper</a>
-    </div>
-</div>
+  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <tr style="padding:0px">
+      <td style="padding:0px">
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr style="padding:0px">
+            <td style="padding:2.5%;width:63%;vertical-align:middle">
+              <p style="text-align:center">
+                <name>Sagie Benaim</name>
+              </p>
+              <p>I am a Master student at <a href=https://cs.au.dk/>Aarhus University</a> 
+
+              </p>
+              <p>
+              Previously, I was a PhD candidate at Tel Aviv University, working in the Deep Learning Lab under the supervision of Prof. 
+              <a href=https://www.cs.tau.ac.il/~wolf/>Lior Wolf</a>.
+              </p>
+              <p>
+              I work in the intersection of computer vision and machine learning. I am interested in computer vision for AR/VR, semi-supervised and self-supervised learning, as well as few-shot learning. Much of my work focuses on content creation, generative models, image to image translation, domain adaptation, and disentanglement. I am also interested in finding general inductive biases, which can be used to learn from a few examples, as well as to reduce the level of supervision. I spent the summer of 2019 at <a href="https://ai.google/research">Google Research</a> working on Self Supervised learning for Videos.
+              </p>
+              <p style="text-align:center">
+                <a href="mailto:sebastianloeschcke@gmail.com">Email</a> &nbsp/&nbsp
+                <a href="data/cv.pdf">CV</a> &nbsp/&nbsp
+                <a href="https://github.com/sloeschcke/">Github</a> &nbsp/&nbsp
+                <a href="https://www.linkedin.com/in/sebastian-loeschcke/">LinkedIn</a> &nbsp/&nbsp
+                <a href="https://scholar.google.com/citations?user=_aM-ud8AAAAJ&hl=en">Google Scholar</a> &nbsp/&nbsp
+              </p>
+            </td>
+            <td style="padding:2.5%;width:40%;max-width:40%">
+              <a href="images/sebastianloeschcke.jpg"><img style="width:70%;max-width:70%" alt="profile photo" src="images/cv_img_circle.png" class="hoverZoomLink"></a>
+            </td>
+          </tr>
+        </tbody></table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="24"><tbody>
+          <tr>
+            <td>
+              <heading>Research</heading>
+            </td>
+          </tr>
+        </tbody></table>
+        
+        
+        
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>   
+        
+                <tr onmouseout="volumetric_stop()" onmouseover="volumetric_start()">
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+            <br> <br>
+              <div class="one">
+                <div class="two" id='volumetric_image'>
+                  <img src='images/volumetric_after.jpg' width="180"></div>
+                <img src='images/volumetric_before.jpg' width="180">
+              </div>
+              <script type="text/javascript">
+                function volumetric_start() {
+                  document.getElementById('volumetric_image').style.opacity = "1";
+                }
+
+                function volumetric_stop() {
+                  document.getElementById('volumetric_image').style.opacity = "0";
+                }
+		volumetric_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+              <a href="http://arxiv.org/abs/2206.02776">
+                <papertitle>Volumetric Disentanglement for 3D Scene Manipulation</papertitle>
+              </a> <br>
+              <strong>Sagie Benaim</strong>,
+        <a href="https://frederikwarburg.github.io/"> Frederik Warburg</a>,
+        <a href="https://captaine.github.io/"> Peter Ebert Christensen</a>,
+        <a href="https://sergebelongie.github.io/"> Serge Belongie</a>
+              <br>
+              <em>arXiv</em>, 2022. 
+              <a href="https://sagiebenaim.github.io/volumetric-disentanglement/">project page</a> /
+              <a href="http://arxiv.org/abs/2206.02776">arXiv</a> 
+              <p></p>
+              <p>
+               We propose a framework for disentangling a 3D scene into a forground and background volumetric representations and show a variety of downstream applications involving 3D manipulation.
+              </p>
+            </td>
+          </tr> 
+        
+        
+        <tr onmouseout="text2mesh_stop()" onmouseover="text2mesh_start()">
+        
+           
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+		
+		
+              <div class="one">
+                <div class="two" id='text2mesh_image'>
+                  <img src='images/text2mesh.gif' width="180"></div>
+                <img src='images/text2mesh.gif' width="180">
+              </div>
+              <script type="text/javascript">
+                function text2mesh_start() {
+                  document.getElementById('text2mesh_image').style.opacity = "1";
+                }
+
+                function text2mesh_stop() {
+                  document.getElementById('text2mesh_image').style.opacity = "0";
+                }
+                text2mesh_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+		
+	      
+
+              <a href="https://arxiv.org/abs/2112.03221">
+                <papertitle>Text2Mesh: Text-Driven Neural Stylization for Meshes</papertitle>
+              </a> <br>
+              <a href="mailto:ojmichel@uchicago.edu">Oscar Michel*</a>,
+              <a href="mailto:Roibaron4@gmail.com">Roi Bar-On*</a>,
+              <a href="mailto:guanzhi97@gmail.com">Richard Liu*</a>,  
+              <strong>Sagie Benaim</strong>,
+              <a href="https://people.cs.uchicago.edu/~ranahanocka/">Rana Hanocka</a>
+              <br>
+              <em>CVPR</em>, 2022. &nbsp <font color="red"><strong>(Oral Presentation)</strong></font>
+              <br>
+              <a href="https://threedle.github.io/text2mesh/">project page</a> /
+              <a href="https://arxiv.org/abs/2112.03221">arXiv</a> /
+              <a href="https://github.com/threedle/text2mesh">code</a>
+              <p></p>
+              <p>
+               Text2Mesh produces color and geometric details over a variety of source meshes, driven by a target text prompt. Our stylization results coherently blend unique and ostensibly unrelated combinations of text, 
+               capturing both global semantics and part-aware  attributes.
+              </p>
+            </td>
+          </tr> 
+          
+        
+        <tr onmouseout="locally_shifted_stop()" onmouseover="locally_shifted_start()">
+        
+           
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+		
+              <br>
+              <div class="one">
+                <div class="two" id='locally_shifted_image'>
+                  <img src='images/locally_shifted.png' width="180"></div>
+                <img src='images/locally_shifted.png' width="180">
+              </div>
+              <script type="text/javascript">
+                function locally_shifted_start() {
+                  document.getElementById('locally_shifted_image').style.opacity = "1";
+                }
+
+                function locally_shifted_stop() {
+                  document.getElementById('locally_shifted_image').style.opacity = "0";
+                }
+                locally_shifted_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+		
+	      
+
+              <a href="https://arxiv.org/abs/2112.05080">
+                <papertitle>Locally Shifted Attention With Early Global Integration</papertitle>
+              </a>  <br>
+              <a href="mailto:shelly.sheynin3@gmail.com">Shelly Sheynin</a>,
+              <strong>Sagie Benaim</strong>,
+              <a href="https://ai.facebook.com/people/adam-polyak">Adam Polyak</a>, 
+              <a href="http://www.cs.tau.ac.il/~wolf/">Lior Wolf</a>
+              <br>
+              <em>arXiv</em>, 2021. 
+              <a href="https://arxiv.org/abs/2112.05080">arXiv</a> /
+              <a href="https://github.com/shellysheynin/locally-sag-transformer">code</a>
+              <p></p>
+              <p>
+               A new image transformer architecture which first applies a local attention over patches and their local shifts, resulting in virtually located local patches, which are not bound to a single, specific location. 
+               Subsequently, these virtually located patches are used in a global attention layer. 
+              </p>
+            </td>
+          </tr> 
+          
+          
+          <tr onmouseout="target_stop()" onmouseover="target_start()">
+        
+           
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+
+              
+              <div class="one">
+                <div class="two" id='target_image'>
+                  <img src='images/target.jpg' width="180"></div>
+                <img src='images/target.jpg' width="180">
+              </div>
+              <script type="text/javascript">
+                function target_start() {
+                  document.getElementById('target_image').style.opacity = "1";
+                }
+
+                function target_stop() {
+                  document.getElementById('target_image').style.opacity = "0";
+                }
+                target_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+		
+
+              <a href="https://arxiv.org/abs/2110.12427">
+                <papertitle>Image-Based CLIP-Guided Essence Transfer</papertitle>
+              </a> <br>
+              <a href="mailto:hilach70@gmail.com">Hila Chefer</a>,
+              <strong>Sagie Benaim</strong>,
+              <a href="mailto:ronipaiss@mail.tau.ac.il">Roni Paiss</a>, 
+              <a href="http://www.cs.tau.ac.il/~wolf/">Lior Wolf</a>
+              <br>
+              <em>arXiv</em>, 2021. 
+              <a href="https://arxiv.org/abs/2110.12427">arXiv</a> /
+              <a href="https://github.com/hila-chefer/TargetCLIP">code</a> /
+              <a href="https://www.casualganpapers.com/clip_image_to_image_style_transfer_essence_transfer/TargetCLIP-explained.html">5 minute summary</a>
+              <p></p>
+              <p>
+               A new style (essense) transfer method that incoporates higher level abstractions then textures and colors. TargetCLIP introduces a blending operator that combines the powerful StyleGAN2 generator with a semantic network CLIP to achieve a more natural blending than with each model separately.
+              </p>
+            </td>
+          </tr> 
+          
+        
+        
+                        <tr onmouseout="jokr_stop()" onmouseover="jokr_start()">
+        
+           
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+
+              
+              <div class="one">
+                <div class="two" id='jokr_image'>
+                  <img src='images/jokr.gif' width="180"></div>
+                <img src='images/jokr.gif' width="180">
+              </div>
+              <script type="text/javascript">
+                function jokr_start() {
+                  document.getElementById('jokr_image').style.opacity = "1";
+                }
+
+                function jokr_stop() {
+                  document.getElementById('jokr_image').style.opacity = "0";
+                }
+                jokr_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+		
+
+              <a href="https://arxiv.org/abs/2106.09679">
+                <papertitle>JOKR: Joint Keypoint Representation for Unsupervised Cross-Domain Motion Retargeting</papertitle>
+              </a> <br>
+              <a href="https://rmokady.github.io/">Ron Mokady</a>,
+              <a href="mailto:rotemtzaban@mail.tau.ac.il ">Rotem Tzaban</a>,
+              <strong>Sagie Benaim</strong>,
+              <a href="https://www.cs.tau.ac.il/~amberman/">Amit Bermano</a>, 
+              <a href="https://danielcohenor.com/">Daniel Cohen-Or</a>
+              <br>
+              <em>arXiv</em>, 2021. 
+              <a href="https://rmokady.github.io/JOKR/">project page</a> /
+              <a href="https://arxiv.org/abs/2106.09679">arXiv</a> /
+              <a href="https://github.com/rmokady/JOKR">code</a>
+              <p></p>
+              <p>
+               We introduce JOKR - a JOint Keypoint Representation that captures the motion common to both the source and target videos, without requiring any object prior or data collection.
+               This geometry-driven representation allows for unsupervised motion retargeting in a variery of challenging situations as well as for further intuitive control, such as temporal coherence and manual editing.
+              </p>
+            </td>
+          </tr> 
+        
+        
+        
+                <tr onmouseout="anomaly_stop()" onmouseover="anomaly_start()">
+        
+           
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+
+              
+              <div class="one">
+                <div class="two" id='anomaly_image'>
+                  <img src='images/anomaly.png' width="180"></div>
+                <img src='images/anomaly.png' width="180">
+              </div>
+              <script type="text/javascript">
+                function anomaly_start() {
+                  document.getElementById('anomaly_image').style.opacity = "1";
+                }
+
+                function anomaly_stop() {
+                  document.getElementById('anomaly_image').style.opacity = "0";
+                }
+                anomaly_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+		
+
+              <a href="https://arxiv.org/abs/2104.14535">
+                <papertitle>A Hierarchical Transformation-Discriminating Generative Model for Few Shot Anomaly Detection</papertitle>
+              </a> <br>
+              <a href="mailto:shelly.sheynin3@gmail.com">Shelly Sheynin*</a>,
+              <strong>Sagie Benaim*</strong>,
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a> 
+              <br>
+              <em>ICCV</em>, 2021.
+              <a href="https://shellysheynin.github.io/HTDG/">project page</a> /
+              <a href="https://arxiv.org/abs/2104.14535">arXiv</a> /
+              <a href="https://github.com/shellysheynin/A-Hierarchical-Transformation-Discriminating-Generative-Model-for-Few-Shot-Anomaly-Detection">code</a>
+              <p></p>
+              <p>
+               We consider the setting of few-shot anomaly detection in images, where only a few images are given at training. We devise a hierarchical generative model that captures the multi-scale patch distribution of each training image. We further enhance the representation of our model by using image transformations and optimize scale-specific patch-discriminators to distinguish between real and fake patches of the image, as well as between different transformations applied to those patches.
+               
+              </p>
+            </td>
+          </tr> 
+          
+        
+        
+        
+         
+        	
+        <tr onmouseout="padain_stop()" onmouseover="padain_start()">
+        
+           
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+
+              
+              <div class="one">
+                <div class="two" id='padain_image'>
+                  <img src='images/padain.png' width="180"></div>
+                <img src='images/padain.png' width="180">
+              </div>
+              <script type="text/javascript">
+                function padain_start() {
+                  document.getElementById('padain_image').style.opacity = "1";
+                }
+
+                function padain_stop() {
+                  document.getElementById('padain_image').style.opacity = "0";
+                }
+                padain_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+		
+
+              <a href="https://arxiv.org/abs/2010.05785">
+                <papertitle>Permuted AdaIN: Reducing the Bias Towards Global Statistics in Image Classification</papertitle>
+              </a> <br>
+              <a href="mailto:orennuriel@mail.tau.ac.il">Oren Nuriel</a>,
+              <strong>Sagie Benaim</strong>,
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a> 
+              <br>
+              <em>CVPR</em>, 2021. 
+              <a href="https://arxiv.org/abs/2010.05785">arXiv</a> /
+              <a href="https://github.com/onuriel/PermutedAdaIN">code</a> 
+              <p></p>
+              <p>
+               A simple architectural change which forces the network to reduce its bias to global image statistics. 
+               Using AdaIN, we swap global statistics of samples within a batch, stocastically, with some probability p. 
+               This results in significant improvements in multiple settings including domain adaptation, domain generalization, robustness
+               and image classification. 
+              </p>
+            </td>
+          </tr> 
+          
+          
+          
+          
+         <tr onmouseout="icip_stop()" onmouseover="icip_start()">
+        
+           
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+                        <br> <br>
+              
+              <div class="one">
+                <div class="two" id='icip_image'>
+                  <img src='images/icip.png' width="180"></div>
+                <img src='images/icip.png' width="180">
+              </div>
+              <script type="text/javascript">
+                function icip_start() {
+                  document.getElementById('icip_image').style.opacity = "1";
+                }
+
+                function icip_stop() {
+                  document.getElementById('icip_image').style.opacity = "0";
+                }
+                icip_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+		
+
+              <a href="https://arxiv.org/abs/2105.14609">
+                <papertitle>Identity and Attribute Preserving Thumbnail Upscaling</papertitle>
+              </a> <br>
+              <a href="mailto:noamgat@gmail.com">Noam Gat</a>,
+              <strong>Sagie Benaim</strong>,
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a> 
+              <br>
+              <em>ICIP</em>, 2021.  
+              <a href="https://arxiv.org/abs/2105.14609">arXiv</a> /
+              <a href="https://github.com/noamgat/IdentityUpscaling">code</a> 
+              <p></p>
+              <p>
+               StyleGAN can be used to upscale a low resolution thumbnail image of a person, to a higher resolution image.
+               However, it often changes the person’s identity, or produces biased solutions, such as Caucasian faces. 
+               We present a method to upscale an image that preserves the person's identity and other attributes.
+              </p>
+            </td>
+          </tr> 
+          
+          <tr onmouseout="jmlr_stop()" onmouseover="jmlr_start()">
+        
+           
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+                        <br>
+              
+              <div class="one">
+                <div class="two" id='jmlr_image'>
+                  <img src='images/jmlr.png' width="180"></div>
+                <img src='images/jmlr.png' width="180">
+              </div>
+              <script type="text/javascript">
+                function jmlr_start() {
+                  document.getElementById('jmlr_image').style.opacity = "1";
+                }
+
+                function jmlr_stop() {
+                  document.getElementById('jmlr_image').style.opacity = "0";
+                }
+                jmlr_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+		
+
+              <a href="https://jmlr.org/papers/volume22/18-489/18-489.pdf">
+                <papertitle>Risk Bounds for Unsupervised Cross-Domain Mapping with IPMs</papertitle>
+              </a> <br>
+              <a href="https://www.tau.ac.il/~tomerga2/">Tomer Galanti</a>,
+              <strong>Sagie Benaim</strong>,
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a> 
+              <br>
+              <em>Journal of Machine Learning Research (JMLR)</em>, 2021.  
+              <a href="https://jmlr.org/papers/volume22/18-489/18-489.pdf">arXiv</a> 
+              <p></p>
+              <p>
+              
+              We develop theoretical foundations for the success of unsupervised cross-domain mapping algorithms, in mapping between
+two domains that share common characteristics, with a particular emphasis on the clear ambiguity in such mappings.
+              </p>
+            </td>
+          </tr> 
+          
+          
+          
+          
+          
+          
+        	
+           <tr onmouseout="metrics_stop()" onmouseover="metrics_start()">
+           
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+            <br>
+              <div class="one">
+                <div class="two" id='metrics_image'>
+                  <img src='images/metrics.png' width="180"></div>
+                <img src='images/metrics.png' width="180">
+              </div>
+              <script type="text/javascript">
+                function metrics_start() {
+                  document.getElementById('metrics_image').style.opacity = "1";
+                }
+
+                function metrics_stop() {
+                  document.getElementById('metrics_image').style.opacity = "0";
+                }
+                metrics_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+		
+
+              <a href="https://arxiv.org/abs/2004.12361">
+                <papertitle>Evaluation Metrics for Conditional Image Generation</papertitle>
+              </a> <br>
+              <a href="mailto:yanivbenny@mail.tau.ac.il">Yaniv Beniv</a>,
+              <a href="https://www.tau.ac.il/~tomerga2/">Tomer Galanti</a>,
+              <strong>Sagie Benaim</strong>,
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a> 
+              <br>
+              <em>International Journal of Computer Vision (IJCV)</em>, 2020. 
+              <a href="https://arxiv.org/abs/2004.12361">arXiv</a> 
+              <p></p>
+              <p>
+Two new metrics for evaluating generative models in the class-conditional image generation setting. These metrics are obtained by generalizing the two most popular unconditional metrics: the Inception Score (IS) and the Fréchet Inception Distance (FID).
+              </p>
+            </td>
+          </tr> 
+           
+           
+
+        
+          
+          <tr onmouseout="structural_stop()" onmouseover="structural_start()">
+           
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='structural_image'>
+                  <img src='images/structural.gif' width="180"></div>
+                <img src='images/structural.gif' width="180">
+              </div>
+              <script type="text/javascript">
+                function structural_start() {
+                  document.getElementById('structural_image').style.opacity = "1";
+                }
+
+                function structural_stop() {
+                  document.getElementById('structural_image').style.opacity = "0";
+                }
+                structural_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
 
 
-<div class="container" style="margin-top:-40px;">
-    <div class="section">
-        <h3 align="center">Abstract</h3>
-        <hr>
-        <p>
-            We tackle the task of stylizing video objects in an intuitive and semantic
-            manner following a user-specified text prompt. This task is challenging as the
-            resulting video must satisfy multiple properties: (1) it has to be temporally
-            consistent and avoid jittering or similar artifacts, (2) the resulting stylization
-            must preserve both the global semantics of the object and its fine-grained details, and (3) it must adhere to the user-specified text prompt. To this end, our
-            method stylizes an object in a video by predicting the color of individual pixels
-            according to a global target text prompt that describes the global semantics
-            and a local target text prompt that describes the local semantics. To modify
-            the style of an object, we harness the representational power of CLIP to get
-            a similarity score between (1) the local target text and a set of local stylized
-            views, and (2) a global target text and a set of stylized global views. We use a
-            pretrained atlas decomposition network to propagate the edits in a temporally
-            consistent manner. We demonstrate that our method is able to generate consistent style changes in time for a variety of objects and videos, that adhere to
-            the specification of the target texts. We also show how varying the specificity
-            of the target texts, and augmenting the texts with a set of prefixes results
-            in stylizations with different levels of detail.
-        <br>
-        <br>
-        <b> TL;DR </b> We propose a framework for stylizing objects in videos using a text-prompt.
-        </p>
-	<img align="center"  src="files/teaser.jpg"
-             style="width:100%; margin-right:-20px; margin-top:20px;">
-      <div class="section">
-        <h2>Results</h2>
-          <p align="left">
-          Our results show how we can succesfully apply a stylization to a variety of objects and videos. We also demonstrate how using prefixes and an increasing specificity for the target texts, results in more detailed stylizations<br />
-          <p align="left"></p>          
-        <hr>
-    </div>
+              <a href="https://sagiebenaim.github.io/structural-analogy/">
+                <papertitle>Structural-analogy from a Single Image Pair</papertitle>
+              </a>
+              <br> 
+              <strong>Sagie Benaim*</strong>,
+              <a href="https://rmokady.github.io/">Ron Mokday*</a>,
+              <a href="https://www.cs.tau.ac.il/~amberman/">Amit Bermano</a>,
+              <a href="https://www.cs.tau.ac.il/~dcor/">Daniel Cohen-Or</a>,
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a> 
+              <br>
+              <em>Computer Graphics Forum</em>, 2020. 
+              <br>
+              <em>Also in the Deep Internal Learning workshop</em>, ECCV 2020. 
+              <br>
+              <a href="https://sagiebenaim.github.io/structural-analogy/">project page</a> /
+              <a href="https://arxiv.org/abs/2004.02222">arXiv</a> /
+              <a href="https://github.com/rmokady/structural-analogy">code</a> /
+              <a href="https://drive.google.com/file/d/1K1sBltZi5wqY4fOdKJq-2nKRrybzl9lF/view">video</a>
+              <p></p>
+              <p>
+                We explore the capabilities of neural networks to understand image structure given only a single pair of images, A and B. We seek to generate images that are structurally aligned: that is, to generate an image that keeps the appearance and style of B, but has a structural arrangement that corresponds to A. Our method can be used for: guided image synthesis, style and texture transfer, text translation as well as video translation.
+              </p>
+            </td>
+          </tr> 
+          
+          
+          <tr onmouseout="hpvae_stop()" onmouseover="hpvae_start()">
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='hpvae_image'>
+                  <img src='images/hpvae_fake_combined.gif' width="180"></div>
+                <img src='images/hpvae_real_combined.gif' width="180">
+              </div>
+              <script type="text/javascript">
+                function hpvae_start() {
+                  document.getElementById('hpvae_image').style.opacity = "1";
+                }
 
-  <h2 align="left"><a name="example_results" id="example_results"></a>Example Results</h2>
-  <p align="left">
-    The following results show how we can successfully apply a stylization to a variety of objects and videos for a different set of target texts. 
-    The first video corresponds to the input video and the others correspond to stylizations applied to the input video.
-  <p align="left"></p>
-  <table width="80%" border="0" align="center">
-    <tbody>
-      <tr>
-      
-        <td align="center">
-          <video width="267" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/examples_fig4/org_swan.mp4" type="video/mp4" />
-          </video>
-        </td>
-         <td align="center"><video width="267" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/examples_fig4/metal_swan.mp4" type="video/mp4" />
-        </video></td>
-         <td align="center"><video width="267" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/examples_fig4/swan_rough_brak_skin.mp4" type="video/mp4" />
-        </video></td>
-      </tr>
-      <tr>
-        <td align="center">"Swan"</td>
-        <td align="center">”Shiny metal swan”</td>
-        <td align="center">”Swan with wood bark skin”</td>
-      </tr>
-            <tr>
-        <td align="center"><video width="267" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/examples_fig4/org_boat.mp4" type="video/mp4" />
-        </video></td>
-         <td align="center"><video width="267" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/examples_fig4/shiny_alu_metal1.mp4" type="video/mp4" />
-        </video></td>
-         <td align="center"><video width="267" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/examples_fig4/shiny_cobber.mp4" type="video/mp4" />
-        </video></td>
-      </tr>
-      <tr>
-        <td align="center">"Boat"</td>
-        <td align="center">"Shiny aluminum fishing boat”</td>
-        <td align="center">”Boat made of copper”</td>
-      </tr>
-      <tr>
-        <td align="center"><video width="267" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/examples_fig4/org_libby.mp4" type="video/mp4" />
-        </video></td>
-         <td align="center"><video width="267" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/examples_fig4/dog_zebra.mp4" type="video/mp4" />
-        </video></td>
-         <td align="center"><video width="267" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/examples_fig4/gold_libby.mp4" type="video/mp4" />
-        </video></td>
-      </tr>
-       <tr>
-        <td align="center">”Dog"</td>
-        <td align="center">”Dog with zebra fur"</td>
-        <td align="center">"Golden dog”</td>
-      </tr>
-    </tbody>
-  </table>
-    <br />
-  <h2 align="left"><a name="example_results" id="example_results"></a>Target Text Specificity</h2>
-    <p align="left">
-        The following results show an experiment where we vary the specificity of a target and how it affects the stylization.
-        The first column show the swan examples and the second column shows the boat examples.  <br />
-        Global target text prompts:
-        <ul>
-          <li>Row one: (a) ”Armor”, (b) ”Iron armor”, (c) ”Medieval iron armor”, (d) ”Suit of shiny medieval iron armor”, (e) ”Full plate shiny medieval iron armor”  </li>
-          <li>Row two: (a) ”Boat made of wood”, (b) ”Boat made of dark walnut wood" (c) ”Fishing boat made of wood”, (d) ”Old fishing boat made of wood”, (e) ”Fishing boat made of wood planks”.</li>
-        </ul>
-  <p align="left"></p>
-  <table width="80%" border="0" align="center">
-    <tbody>
-        <tr>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/target_text_specificity_fig5/armor.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/target_text_specificity_fig5/iron_armor.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/target_text_specificity_fig5/medieval_iron_armor.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/target_text_specificity_fig5/suit_of_shinny_medieval_iron_armor.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/target_text_specificity_fig5/full_plate_shinny_medieval_iron_armor.mp4" type="video/mp4" />
-            </video></td>
-            <tr>
-              <td align="center">(a)</td>
-              <td align="center">(b)</td>
-              <td align="center">(c)</td>
-              <td align="center">(d)</td>
-              <td align="center">(e)</td>
-            </tr>
-          </tr>
+                function hpvae_stop() {
+                  document.getElementById('hpvae_image').style.opacity = "0";
+                }
+                hpvae_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+              <br>
+              <a href="https://shirgur.github.io/hp-vae-gan/">
+                <papertitle>Hierarchical Patch VAE-GAN: Generating Diverse Videos from a Single Sample</papertitle>
+              </a>
+              <br>
+              <a href="https://www.gurshir.com/">Shir Gur*</a>,
+              <strong>Sagie Benaim*</strong>,
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a> 
+              <br>
+              <em>NeurIPS</em>, 2020. 
+              <br>
+              <em>Also in the Deep Internal Learning workshop</em>, ECCV 2020. 
+              <br>
+              <a href="https://shirgur.github.io/hp-vae-gan/">project page</a> /
+              <a href="https://arxiv.org/abs/2006.12226">arXiv</a> /
+              <a href="https://github.com/shirgur/hp-vae-gan">code</a> /
+              <a href="https://drive.google.com/file/d/1elwDahrrGmBwwkzKYqZT2GXZyuCWlVIG/view">video</a>
+              <p></p>
+              <p>
+                We consider the task of generating diverse and novel videos from a single video sample. We introduce a novel patch-based variational autoencoder (VAE) which allows for a much greater diversity in generation. Using this tool, a new hierarchical video generation scheme is constructed resulting in diverse and high quality videos. 
+                <br>
+              </p>
+              
+            </td>
+          </tr> 
+          
+          <tr onmouseout="speednet_stop()" onmouseover="speednet_start()">
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='speednet_image'>
+                  <img src='images/speednet_after.gif' width="180"></div>
+                <img src='images/speednet_before.gif' width="180">
+              </div>
+              <script type="text/javascript">
+                function speednet_start() {
+                  document.getElementById('speednet_image').style.opacity = "1";
+                }
+
+                function speednet_stop() {
+                  document.getElementById('speednet_image').style.opacity = "0";
+                }
+                speednet_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+<br>
+              <a href="https://speednet-cvpr20.github.io/">
+                <papertitle>SpeedNet: Learning the Speediness in Videos</papertitle>
+              </a>
+              <br>
+              <strong>Sagie Benaim</strong>,
+              <a href="https://www.cs.huji.ac.il/~arielephrat/">Ariel Ephrat</a>,
+              <a href="https://research.google/people/105975/">Oran Lang</a>, 
+              <a href="https://research.google/people/InbarMosseri/">Inbar Mosseri</a>,
+              <a href="https://billf.mit.edu/">William T. Freeman</a>,
+              <a href="http://people.csail.mit.edu/mrub/">Michael Rubinstein</a>,
+              <a href="http://www.weizmann.ac.il/math/irani/home">Michal Irani</a>,
+              <a href="http://people.csail.mit.edu/talidekel/">Tali Dekel</a> 
+              
+              <br>
+              <em>CVPR</em>, 2020. &nbsp <font color="red"><strong>(Oral Presentation)</strong></font>
+              <br>
+              <a href="https://speednet-cvpr20.github.io/">project page</a> /
+              <a href="https://arxiv.org/abs/2004.06130">arXiv</a> /
+              <a href="https://www.youtube.com/watch?v=dP2dS2ZQ9LQ&feature=emb_logo">video</a>
+              <p></p>
+              <p>
+                We train a network called SpeedNet to to automatically predict the "speediness" of moving objects in videos - whether they move faster, at, or slower than their "natural" speed. SpeedNet is trained in a self-supervised manner and can be used to generate time-varying, adaptive video speedups as well as to boost the performance of self-supervised action recognition and video retrieval.
+              </p>
+            </td>
+          </tr> 
+          
+          
+          <tr onmouseout="masked_stop()" onmouseover="masked_start()">
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='masked_image'>
+                  <img src='images/masked.jpg' width="180"></div>
+                <img src='images/masked.jpg' width="180">
+              </div>
+              <script type="text/javascript">
+                function masked_start() {
+                  document.getElementById('masked_image').style.opacity = "1";
+                }
+
+                function masked_stop() {
+                  document.getElementById('masked_image').style.opacity = "0";
+                }
+                masked_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+
+              <a href="https://openreview.net/pdf?id=BJe-91BtvH">
+                <papertitle>Masked Based Unsupervised Content Transfer</papertitle>
+              </a>
+              <br>
+              <a href="https://rmokady.github.io/">Ron Mokday</a>,
+              <strong>Sagie Benaim</strong>,
+              <a href="https://www.cs.tau.ac.il/~amberman/">Amit Bermano</a>,
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a> 
+              
+              <br>
+              <em>ICLR</em>, 2020. &nbsp
+              <br>
+              <a href="https://openreview.net/pdf?id=BJe-91BtvH">arXiv</a> /
+              <a href="https://github.com/rmokady/mbu-content-tansfer">code</a> /
+              <a href="https://iclr.cc/virtual_2020/poster_BJe-91BtvH.html">video</a>
+              <p></p>
+              <p>
+                We consider the problem of translating, in an unsupervised manner, between two
+domains where one contains some additional information compared to the other. To do so, we disentangle the common and separate parts of these domains
+and, through the generation of a mask, focuses the attention of the underlying
+network to the desired augmentation, without wastefully reconstructing the
+entire target. 
+              </p>
+            </td>
+          </tr> 
+          
+          
+          <tr onmouseout="intersection_stop()" onmouseover="intersection_start()">
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='intersection_image'>
+                  <img src='images/intersection_after.jpg' width="180"></div>
+                <img src='images/intersection_before.jpg' width="180">
+              </div>
+              <script type="text/javascript">
+                function intersection_start() {
+                  document.getElementById('intersection_image').style.opacity = "1";
+                }
+
+                function intersection_stop() {
+                  document.getElementById('intersection_image').style.opacity = "0";
+                }
+                intersection_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+              
+              <a href="https://arxiv.org/abs/1908.11628">
+                <papertitle>Domain Intersection and Domain Difference</papertitle>
+              </a>
+              <br>
+              <strong>Sagie Benaim</strong>,
+              <a href="mailto:michaell.kh@gmail.com">Michael Khaitov</a>, 
+              <a href="https://www.tau.ac.il/~tomerga2/">Tomer Galanti</a>, 
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a>
+              <br>
+              <em>ICCV</em>, 2019.
+              <br>
+              <a href="https://arxiv.org/abs/1908.11628">arXiv</a> /
+              <a href="https://github.com/sagiebenaim/DomainIntersectionDifference">code</a>
+              <p></p>
+              <p>
+                We present a method for recovering the shared content between two visual domains as well as the content that is unique to each domain. This allows us to remove content specific content of the first domain and add content specific to the second domain. We can also generate form the intersection of the two domains and their union, despite having no such samples during training. 
+                <br>
+              </p>
+              
+            </td>
+          </tr> 
+          
+          
+          
+         <tr onmouseout="separation_stop()" onmouseover="separation_start()">
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='separation_image'>
+                  <img src='images/seperation_after.png' width="180"></div>
+                <img src='images/seperation_before.png' width="180">
+              </div>
+              <script type="text/javascript">
+                function separation_start() {
+                  document.getElementById('separation_image').style.opacity = "1";
+                }
+
+                function separation_stop() {
+                  document.getElementById('separation_image').style.opacity = "0";
+                }
+                separation_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+                       
+              <br><br>
+              <a href="https://arxiv.org/abs/1812.06087">
+                <papertitle>Semi-Supervised Monaural Singing Voice Separation With a Masking Network Trained on Synthetic Mixtures</papertitle>
+              </a>
+              <br>
+              <a href="mailto:mosheman5@gmail.com">Michael Michelashvili</a>,
+              <strong>Sagie Benaim</strong>,
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a>
+              <br>
+              <em>ICASSP</em>, 2019.
+              <br>
+              <a href="https://arxiv.org/abs/1812.06087">arXiv</a> /
+              <a href="https://github.com/sagiebenaim/Singing">code</a> /              
+              <a href="https://sagiebenaim.github.io/Singing">samples</a>
+
+              <p></p>
+              <p>
+                We study the problem of semi-supervised singing voice separation, in which the training data contains a set of samples of mixed music (singing and instrumental) and an unmatched set of instrumental music. Our results indicate that we are on a par with or better than fully supervised methods, which are also provided with training samples of unmixed singing voices, and are better than other recent semi-supervised methods.
+                <br>
+              </p>
+              
+            </td>
+          </tr> 
+          
+          <tr onmouseout="content_stop()" onmouseover="content_start()">
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='content_image'>
+                  <img src='images/content.png' width="180"></div>
+                <img src='images/content.png' width="180">
+              </div>
+              <script type="text/javascript">
+                function content_start() {
+                  document.getElementById('content_image').style.opacity = "1";
+                }
+
+                function content_stop() {
+                  document.getElementById('content_image').style.opacity = "0";
+                }
+                content_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+                 <br>
+              <a href="https://openreview.net/pdf?id=BylE1205Fm">
+                <papertitle>Emerging Disentanglement in Auto-Encoder Based Unsupervised Image Content Transfer</papertitle>
+              </a>
+              <br>
+              <a href="https://oripress.com/">Ori Press</a>,
+              <a href="https://www.tau.ac.il/~tomerga2/">Tomer Galanti</a>,             
+              <strong>Sagie Benaim</strong>,
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a>
+              <br>
+              <em>ICLR</em>, 2019.
+              <br>
+              <a href="https://openreview.net/pdf?id=BylE1205Fm">arXiv</a> /
+              <a href="https://github.com/oripress/ContentDisentanglement">code</a>
+              <p></p>
+              <p>
+                We study the problem of learning to map, in an unsupervised way, between domains A and B, such that the samples b in B, contain all the information that
+exists in samples a in A, and some additional information. 
+                <br>
+              </p>
+              
+            </td>
+          </tr> 
+          
+          
+          <tr onmouseout="localmaxima_stop()" onmouseover="localmaxima_start()">
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='localmaxima_image'>
+                  <img src='images/localmaxima.png' width="180"></div>
+                <img src='images/localmaxima.png' width="180">
+              </div>
+              <script type="text/javascript">
+                function localmaxima_start() {
+                  document.getElementById('localmaxima_image').style.opacity = "1";
+                }
+
+                function localmaxima_stop() {
+                  document.getElementById('localmaxima_image').style.opacity = "0";
+                }
+                localmaxima_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+            
+              <a href="https://openreview.net/pdf?id=H1lqZhRcFm">
+                <papertitle>Unsupervised Learning of the Set of Local Maxima</papertitle>
+              </a>
+              <br>         
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a>,               
+              <strong>Sagie Benaim</strong>,
+              <a href="https://www.tau.ac.il/~tomerga2/">Tomer Galanti</a>
+              <br>
+              <em>ICLR</em>, 2019.
+              <br>
+              <a href="https://openreview.net/pdf?id=H1lqZhRcFm">arXiv</a> 
+              <p></p>
+              <p>
+              We study a new form of unsupervised learning, whose input is a set
+              of unlabeled points that are assumed to be local maxima of an unknown value
+              function v in an unknown subset of the vector space. Two functions are learned:
+             (i) a set indicator c, which is a binary classifier, and (ii) a comparator function
+             h that given two nearby samples, predicts which sample has the higher value of
+             the unknown function v. 
+                <br>
+              </p>
+              
+            </td>
+          </tr> 
+          
+          
+          <tr onmouseout="ost_stop()" onmouseover="ost_start()">
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='ost_image'>
+                  <img src='images/ost.png' width="180"></div>
+                <img src='images/ost.png' width="180">
+              </div>
+              <script type="text/javascript">
+                function ost_start() {
+                  document.getElementById('ost_image').style.opacity = "1";
+                }
+
+                function ost_stop() {
+                  document.getElementById('ost_image').style.opacity = "0";
+                }
+                ost_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+                
+              <a href="https://arxiv.org/abs/1806.06029">
+                <papertitle>One-Shot Unsupervised Cross Domain Translation</papertitle>
+              </a>
+              <br>         
+              <strong>Sagie Benaim</strong>,              
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a>               
+              <br>
+              <em>NeurIPS</em>, 2018.
+              <br>
+              <a href="https://arxiv.org/abs/1806.06029">arXiv</a> /
+              <a href="https://github.com/sagiebenaim/OneShotTranslation">code</a> 
+              <p></p>
+              <p>
+              Given a single image x from domain A and a set of images from domain B, we consider the task of 
+               generating the analogous of x in B.
+                <br>
+              </p>
+              
+            </td>
+          </tr> 
+          
+          
+          
+          <tr onmouseout="estimating_stop()" onmouseover="estimating_start()">
+            
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+            <br>
+              <div class="one">
+                <div class="two" id='estimating_image'>
+                  <img src='images/estimating.png' width="180"></div>
+                <img src='images/estimating.png' width="180">
+              </div>
+              <script type="text/javascript">
+                function estimating_start() {
+                  document.getElementById('estimating_image').style.opacity = "1";
+                }
+
+                function estimating_stop() {
+                  document.getElementById('estimating_image').style.opacity = "0";
+                }
+                estimating_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+                  
+              <a href="https://arxiv.org/abs/1712.07886.pdf">
+                <papertitle>Estimating the Success of Unsupervised Image to Image Translation</papertitle>
+              </a>
+              <br>         
+              <strong>Sagie Benaim*</strong>,              
+              <a href="https://www.tau.ac.il/~tomerga2/">Tomer Galanti*</a>, 
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a>               
+              <br>
+              <em>ECCV</em>, 2018.
+              <br>
+              <a href="https://arxiv.org/abs/1712.07886.pdf">arXiv</a> /
+              <a href="https://github.com/sagiebenaim/gan_bound">code</a> 
+              <p></p>
+              <p>
+While in supervised learning, the validation error is an unbiased estimator of the
+generalization (test) error and complexity-based generalization bounds are abundant, no such bounds exist for learning a mapping in an unsupervised way. 
+We propose a novel bound for predicting the success of unsupervised cross domain
+mapping methods.
+                <br>
+              </p>
+              
+            </td>
+          </tr> 
+          
+          
+          <tr onmouseout="roleof_stop()" onmouseover="roleof_start()">
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='roleof_image'>
+                  <img src='images/roleof_after.png' width="180"></div>
+                <img src='images/roleof_before.png' width="180">
+              </div>
+              <script type="text/javascript">
+                function roleof_start() {
+                  document.getElementById('roleof_image').style.opacity = "1";
+                }
+
+                function roleof_stop() {
+                  document.getElementById('roleof_image').style.opacity = "0";
+                }
+                roleof_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+              
+              <a href="https://openreview.net/pdf?id=H1VjBebR-">
+                <papertitle>The Role of Minimal Complexity Functions in Unsupervised Learning of Semantic Mappings</papertitle>
+              </a>
+              <br>         
+              <a href="https://www.tau.ac.il/~tomerga2/">Tomer Galanti</a>,               
+              <strong>Sagie Benaim</strong>,              
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a>               
+              <br>
+              <em>ICLR</em>, 2018.
+              <br>
+              <a href="https://openreview.net/pdf?id=H1VjBebR-">arXiv</a>
+              <p></p>
+              <p>
+              We discuss the feasibility of the unsupervised cross domain generation problem. In the typical setting this problem is ill posed: it seems possible to build infinitely many alternative mappings from every target mapping. We identify the abstract notion of aligning two domains and show that only a minimal architecture and a standard GAN loss is required to learn such mappings, without the need for a cycle loss. 
+                <br>
+              </p>
+              
+            </td>
+          </tr> 
+          
+          
+          <tr onmouseout="distancegan_stop()" onmouseover="distancegan_start()">  
+            <td style="padding:2.5%;width:25%;vertical-align:middle">
+            <br><br>
+              <div class="one">
+                <div class="two" id='distancegan_image'>
+                  <img src='images/distancegan_after.jpg' width="180"></div>
+                <img src='images/distancegan_before.png' width="180">
+              </div>
+              <script type="text/javascript">
+                function distancegan_start() {
+                  document.getElementById('distancegan_image').style.opacity = "1";
+                }
+
+                function distancegan_stop() {
+                  document.getElementById('distancegan_image').style.opacity = "0";
+                }
+                distancegan_stop()
+              </script>
+            </td>
+            <td style="padding:0;width:40%;max-width:40%">
+              <a href="https://arxiv.org/abs/1706.00826">
+                <papertitle>One-Sided Unsupervised Domain Mapping</papertitle>
+              </a>                  
+              <br> 
+              <strong>Sagie Benaim</strong>,              
+              <a href="https://www.cs.tau.ac.il/~wolf/">Lior Wolf</a>               
+              <br>
+              <em>NIPS</em>, 2017. &nbsp <font color=#FF8080><strong>(Spotlight)</strong></font>
+              <br>
+              <a href="https://arxiv.org/abs/1706.00826">arXiv</a> /
+              <a href="https://github.com/sagiebenaim/DistanceGAN">code</a>
+              <p></p>
+              <p>
+              We consider the problem of mapping, in an unsupervised manner, between two visual domains in a one sided fashion. 
+              This is done by learning an equivariant mapping that maintains the distance between a pair of samples. 
+                <br>
+              </p>
+              
+            </td>
+          </tr> 
+          
+
           <tr>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/target_text_specificity_fig5/boat_made_of_wood.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/target_text_specificity_fig5/Boatmade_of_dark_walnut_wood.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/target_text_specificity_fig5/fishing_boat_made_of_wood.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/target_text_specificity_fig5/old_fishing_boat_made_of_wood.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/target_text_specificity_fig5/fishing_boat_made_of_wood_planks.mp4" type="video/mp4" />
-            </video></td>
-            <tr>
-              <td align="center">(a)</td>
-              <td align="center">(b)</td>
-              <td align="center">(c)</td>
-              <td align="center">(d)</td>
-              <td align="center">(e)</td>
-            </tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <img src="images/fo2.png" alt="clean-usnob" width="180">
+            </td>
+            <td width="75%" valign="middle">
+              <a href="https://link.springer.com/chapter/10.1007/978-3-642-39212-2_10">
+                <papertitle>Complexity of Two-variable Logic on Finite Trees</papertitle>
+              </a>
+              <br>
+              <strong>Sagie Benaim</strong>,
+              <a href="http://www.cs.ox.ac.uk/michael.benedikt/home.html">Michael Benedikt</a>, 
+              <a href="https://www.ii.uni.wroc.pl/~wch/">Witold Charatonik</a>, 
+              <a href="http://www.ii.uni.wroc.pl/~kiero/">Emanuel Kieroński</a>,               
+              <a href="https://research.google/people/RastislavLenhardt/">Rastislav Lenhardt</a>, 
+              <a href="https://fmazowiecki.github.io/">Filip Mazowiecki</a>,              
+              <a href="http://www.cs.ox.ac.uk/people/james.worrell/home.html">James Worrell</a>          
+              <br>
+              <em>ICALP</em>, 2013 and ACM Transaction of Computational Logic, Volume 17, 2016 (MSc Thesis).
+              <p>               This work contains a comprehensive analysis of the complexity the two-variable fragment of first-order logic FO2 on trees. </p>
+            </td>
           </tr>
-    </tbody>
-  </table>
-  <br />
-  <hr />
-  <h2 align="left"><a name="prefix_augs" id="prefix_augs"></a>Prefix Augmentations</h2>
-  <p align="left">
-    The following results show how varying the number of prefixes used for the target text affects the stylization.  <br />
-    The examples use the following texts:
-    <ul>
-      <li> Row one: Global target text: ”Origami swan with white paper skin”, and local target text: ”Origami white paper
-        skin”. </li>
-      <li> Row two: Global target text: ”Dog with bengal tiger fur”, and local target text: ”Bengal
-        tiger fur”.
-    </ul>
-  The experiment configurations are (a) no prefixes, (b) 4 local, no global, (c) 4 global, no local (d) 4
-  global & 4 local, (e) 8 global & 8 local. The specific prefixes are described in Section 6.3 of the paper.
-</p>
-  <table width="80%" border="0" align="center">
-    <tbody>
-        <tr>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/prefix_exp_paper_fig6/origami_swan/swan_no_prefixes.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-              <source src="stylized_videos/prefix_exp_paper_fig6/origami_swan/swan_no_global_prefixes.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/prefix_exp_paper_fig6/origami_swan/swan_no_local_prefixes.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/prefix_exp_paper_fig6/origami_swan/swan_4_global_4_local.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/prefix_exp_paper_fig6/origami_swan/swan_8_local_8_global.mp4" type="video/mp4" />
-            </video></td>
-          </tr>
+
+        </tbody></table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
           <tr>
-              <td align="center">(a)</td>
-              <td align="center">(b)</td>
-              <td align="center">(c)</td>
-              <td align="center">(d)</td>
-              <td align="center">(e)</td>
+            <td>
+              <heading>Talks</heading>
+            </td>
           </tr>
+        </tbody></table>
+        <table width="100%" align="center" border="0" cellpadding="20"><tbody>
           <tr>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/prefix_exp_paper_fig6/tiger_dog/no_local_no_global.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/prefix_exp_paper_fig6/tiger_dog/4_local_no_global.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/prefix_exp_paper_fig6/tiger_dog/4_global_no_local.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/prefix_exp_paper_fig6/tiger_dog/4_local_4_global.mp4" type="video/mp4" />
-            </video></td>
-            <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-                <source src="stylized_videos/prefix_exp_paper_fig6/tiger_dog/8_local_8_global.mp4" type="video/mp4" />
-            </video></td>
+            <td width="100%" valign="center">
+            
+              <a href="presentations/talk_visionday.pdf"><em>Text2Mesh: Text-Driven Stylization for Meshes</em></a>, 
+               Israel Computer Vision Day 2021.
+              <br>
+                            <br>               
+               <a href="presentations/talk_aarhus.pdf"><em>Semantic Manipulation of Visual Content</em></a>, 
+               Pioneer Center of AI Colloquium, hosted by Aarhus University and Technion CDS Seminar, 2021.
+              <br>
+                            <br>
+              Structure-Aware Manipulation of Images and Videos, 2021.
+              <br>
+              <a href="presentations/talk-facebook.pdf"><em>Facebook AI Research (London)</em></a>,
+              <a href="presentations/talk-stanford.pdf"><em>Stanford SVL Meeting</em></a>,
+              <a href="presentations/talk-google.pdf"><em>Google Research (Tel Aviv)</em></a>, 
+              <br>
+              <a href="presentations/talk-nvidia.pdf"><em>Nvidia Research (San Francisco) </em></a>, 
+              <a href="presentations/talk-cds-technion.pdf"><em>Technion CDS Seminar</em></a>,
+              <a href="presentations/talk-tau-seminar.pdf"><em>Tel Aviv Visual Computing Seminar</em></a>.
+              <br>
+              <br>
+              <a href="presentations/talk-berkeley.pdf"><em>Manipulating Structure in Images and Videos.</em></a>, Nvidia Research (Tel Aviv), Berkeley, 2021.
+              <br>
+              <br>
+              <a href="presentations/talk-viscam.pdf"><em>On disentangled and few shot visual generation and understanding</em></a>, Google Viscam Seminar, 2020.
+              <br>
+              <br>
+              <a href="presentations/speednet_and_hpvaegan.pptx"><em>Learning the Speediness in Videos and Generating Novel Videos From a Single Sample</em></a>, Hebrew University Vision Seminar,  Technion ML Seminar, 2020.
+              <br>
+              <br>
+              <a href="presentations/speednet.pptx"><em>SpeedNet: Learning the Speediness in Videos</em></a>, Viz.ai, 2020.
+              <br>
+              <br>
+              <a href="presentations/huji_2020.pdf"><em>Visual Analogies: The role of disentanglement and learning from few example</em></a>, Hebrew University Vision Seminar, 2020.
+              <br>
+              <br>
+              Domain Intersection and Domain Difference, 2020. <a href="presentations/iccv_amazon.pdf"><em>Amazon Research (Tel Aviv)</em></a>, 
+              <a href="presentations/domain.pdf"><em>, ICCVi, 2019</em></a>.
+              <br>
+              <br>
+              <a href="presentations/gans_imvc.pdf"><em>Generative Adversarial Networks for Image to Image Translation</em></a>, IMVC, 2019.  
+              <a href="https://www.youtube.com/watch?v=ZrJKEjRYwTo"><em>Video</em></a>. 
+              <br>
+              <br>
+              <a href="presentations/new_capabilities.pdf"><em>New Capabilities in Unsupervised Image to Image Translation</em></a>, Bar Ilan ML Seminar, 2019.
+              <br>
+              <br>
+              <a href="presentations/one_shot.pdf"><em>One-Shot Unsupervised Cross Domain Translation</em></a>, Technion CDS Seminar, 2019.              
+              <br>
+              <br>
+              <a href="presentations/elbit.pdf"><em>Introduction to Generative Adversarial Networks</em></a>, Elbit, 2018.
+              <br>
+              <br>
+              <a href="presentations/nexar.pdf"><em>Generative Adversarial Networks for Image to Image Translation</em></a>, Nexar, 2018.
+              <br>
+              <br>
+              <a href="presentations/one_sided.pdf"><em>One-Sided Unsupervised Domain Mapping</em></a>, Hebrew University Vision Seminar, Weizmann Institute Vision Seminar, Technion Pixel Club, 2018.              
+            </td>
           </tr>
+        
+        </tbody></table>
+        
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="24"><tbody>
           <tr>
-              <td align="center">(a)</td>
-              <td align="center">(b)</td>
-              <td align="center">(c)</td>
-              <td align="center">(d)</td>
-              <td align="center">(e)</td>
+            <td>
+              <heading>Teaching</heading>
+            </td>
           </tr>
-    </tbody>
-  </table>  <p></p>
-  <hr />
-  <h2 align="left"><a name="ablation" id="ablation"></a>Abaltion Of Losses</h2>
-  <p align="left">
-    The following results show the affects of each of our loss terms. We ablate each loss term and show how it effects the stylization and quality. <br />
-    The global target text used: ”A swan with crocodile skin” <br />
-    The local target text used: ”Crocodile skin”. <br />
-   (a) All losses, (b) w/o local loss, (c) w/o global loss, (d) w/o temporal loss, (e) w/o sparsity loss. 
-  </p>
-  <table width="200" border="0" align="center">
-    <tbody>
-      <tr>
-        <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/ablation_crocodile_fig7/all.mp4" type="video/mp4" />
-        </video></td>
-        <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/ablation_crocodile_fig7/no_local.mp4" type="video/mp4" />
-        </video></td>
-        <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/ablation_crocodile_fig7/no_global.mp4" type="video/mp4" />
-        </video></td>
-        <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/ablation_crocodile_fig7/no_temporal.mp4" type="video/mp4" />
-        </video></td>
-        <td align="center"><video width="200" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/ablation_crocodile_fig7/no_sparsity.mp4" type="video/mp4" />
-        </video></td>
-      </tr>
-      <tr>
-        <td align="center">(a)</td>
-        <td align="center">(b)</td>
-        <td align="center">(c)</td>
-        <td align="center">(d)</td>
-        <td align="center">(e)</td>
+        </tbody></table>
+        <table width="100%" align="center" border="0" cellpadding="20"><tbody>
+          <tr>
+            <td width="100%" valign="center">
+		Convolutional Neural Networks. Tel Aviv University. <a>Spring 2019</a>, <a>Spring 2020</a>, <a>Spring 2021</a>.
+           
+            </td>
+          </tr>
+        
+        </tbody></table>
+        
+                <table width="100%" align="center" border="0" cellspacing="0" cellpadding="24"><tbody>
+          <tr>
+            <td>
+              <heading>Awards</heading>
+            </td>
+          </tr>
+        </tbody></table>
+        <table width="100%" align="center" border="0" cellpadding="20"><tbody>
+          <tr>
+            <td width="100%" valign="center">
+		Awarded The Raymond and Beverly Sackler Excellence Scholarship for the Faculty of Exact Sciences. January 2018.
+           
+            </td>
+          </tr>
+        
+        </tbody></table>
+        
+        
+                        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="24"><tbody>
+          <tr>
+            <td>
+              <heading>Voluntary Activities</heading>
+            </td>
+          </tr>
+        </tbody></table>
+        <table width="100%" align="center" border="0" cellpadding="20"><tbody>
+          <tr>
+            <td width="100%" valign="center">
+		Reviewer for NeurIPS, ICLR, CVPR, ICML, ECCV, ICCV. 
+            </td>
+          </tr>
+          
+          
+        
+        </tbody></table>
+        
+
+        
+	          <br><br>
+              <p style="font-size:small;width="100%" valign="center"">
+				This page design is based on a template by <a href="https://jonbarron.info/">Jon Barron</a>.
+              </p>
+                    
+      </td>
     </tr>
-    </tbody>
-  </table>  <p></p>
-  <hr />
-  <h2 align="left"><a name="global_local_semantics" id="global_local_semantics"></a>Global and Local Semantics</h2>
-  <p align="left">
-    The following videos show how changing the local and global target texts affects the stylization <br />
-    The target texts used for the stylization: <br />
-    <ul>
-      <li>(a) Global target text: ”Swan with cactus skin”,  Local target text:: ”Cactus skin”</li>
-      <li>(b) Global target text: ”Swan with cactus skin”, Local target text: ”Rough cactus skin”</li>
-      <li>(c) Global target text: ”Swan made out of cactus”, Local target text: ”Catus skin”. </li>
-    </ul>
-  </p>
-  <table width="80%" border="0" align="center">
-    <tbody>
-      <tr>
-        <td align="center"><video width="300" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/cactus_ablation_global_local_fig_8/swan_with_cactus_skin_cactus_skin.mp4" type="video/mp4" />
-        </video></td>
-        <td align="center"><video width="300" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/cactus_ablation_global_local_fig_8/swan_with_cactus_skin_rough_cactus_skin.mp4" type="video/mp4" />
-        </video></td>
-        <td align="center"><video width="300" controls="controls" autoplay muted playsinline loop>
-            <source src="stylized_videos/cactus_ablation_global_local_fig_8/swan_made_out_of_cactus_catus_skin.mp4" type="video/mp4" />
-        </video></td>
-        </td>
-      </tr>
-      <tr>
-        <td align="center">(a)</td>
-        <td align="center">(b)</td>
-        <td align="center">(c)</td>
-      </tr>
-    </tbody>
-  </table>  <p></p>
-  <p align="left"></p>
-  <hr />
+  </table>
   
-</div>
 
-    <div align="center" class="section">
-      <h3>Citation</h3>
-      <div class="form-group col-md-10">
-        <textarea id="bibtex" class="form-control" rows=6 readonly>
-@article{benaim2022volumetricexample_results,
-  title={Text-Driven Stylization of Video Objects},
-  author={Sagie Benaim and Frederik Warburg and Peter Ebert Christensen and Serge Belongie},
-  journal={arXiv},
-  year={2022}
-}</textarea>
-  <br />
-      <h3>Acknowledgement</h3>
-<p align="left">
-This research was supported by the Pioneer Centre for AI, DNRF grant number P1.
-</p>
-      </div>
-    </div>
-
-
+  
 </body>
+
 </html>
