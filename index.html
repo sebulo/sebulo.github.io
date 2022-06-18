@@ -88,14 +88,31 @@
             </td>
           </tr> 
           <!-- EUROVA PAPER -->
-                <tr>
+          <tr onmouseout="eurova_param_stop()" onmouseover="eurova_param_start()">
+        
+    
             <td style="padding:2.5%;width:25%;vertical-align:middle">
             <br> <br>
         
-            <div class="one">
+            <!-- <div class="one">
                 <img src='images/eurova_paper.png' width="180">
-            </div>
-              
+            </div> -->
+            <div class="one">
+                <div class="two" id='text2mesh_image'>
+                  <img src='files/sax_paa_param_viz.gif' width="180"></div>
+                <img src='files/sax_paa_param_viz.gif' width="180">
+              </div>
+              <script type="text/javascript">
+                function eurova_param_start() {
+                  document.getElementById('text2mesh_image').style.opacity = "1";
+                }
+
+                function eurova_param_stop() {
+                  document.getElementById('text2mesh_image').style.opacity = "0";
+                }
+                eurova_param_stop()
+              </script>
+            
             </td>
             <td style="padding:0;width:40%;max-width:40%">
               <a href="MISSING">
