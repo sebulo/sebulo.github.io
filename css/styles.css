@@ -91,12 +91,10 @@ div , footer {
 }
 .sr {
 
-	.has-animations {
-
-		.is-revealing {
-			visibility: hidden;
+		.is-revealing { 
+			/* not hidden */
+			visibility:  visible;
 		}
-	}
 }
 /* Reset ends */
 
@@ -276,7 +274,7 @@ li {
 	position: relative;
 	display: inline-block;
 	float: left;
-	/* width: 20%; */
+	width: 20%;
   	height: 50px;
 }
 li .line {
@@ -337,16 +335,19 @@ li .description {
 }
 
 /* ---- Hover effects ---- */
-/* li:hover {
+li:hover {
   color: #48A4D2;
 }
 li .description {
   display: block;
 }
 
-timeline ends */
 
+/* timeline ends */
 
+/* talks and awards starts */
+
+/* talks and awards ends */
 
 /* Media queries*/
 
