@@ -49,48 +49,75 @@
 		</div>
 
 	</div>
-
-	<!-- Timeeline -->
-<!-- 
-	<div class="container">
-    <h2 class="section-title timeline">Experience</h2>
-    <ol class="timeline">
-      <li class="is-revealing is-header">
-        <span class="point"></span>
-        <span class="date">2023 - Now</span>
-        <p class="description">
-          Ph.D. Student<br>
-          IT University of Copenhagen and Pioneer Centre for AI
-        </p>
-      </li>
-      
-      <li class="is-revealing is-header">
-        <span class="point"></span>
-        <span class="date">2021 - 2023</span>
-        <p class="description">
-          Master<br>
-          Aarhus University and one semester at Copenhagen University
-        </p>
-      </li>
-      
-      <li class="is-revealing is-header">
-        <span class="point"></span>
-        <span class="date">2018 - 2021</span>
-        <p class="description">
-          Bachelor<br>
-          Aarhus University
-        </p>
-      </li>
-      
-    </ol>
-  </div>
+	<!-- <br><br> -->
   
-	<br><br> -->
 	<!-- <br><br> -->
 	<!-- Publications -->
 
 	<div class="container" style="margin-top: 80px">
 		<h2 class="section-title">Publications</h2>
+
+			<!-- New publication entry for LoQT -->
+		<div class="row publication">
+			<div class="col-lg-4">
+				<img id="loqt-image" src="images/loqt_memory_13b_llama2_rank1024.png" alt="LoQT" onmouseover="switchImage('images/loqt.png')" onmouseout="switchImage('images/loqt_memory_13b_llama2_rank1024.png')">
+			</div>
+			<div class="col-lg-8">
+				<p class="title">LoQT: Low Rank Adapters for Quantized Training</p>
+				<p class="author"><strong> Sebastian Loeschcke, </strong>
+					Mads Toftrup,
+					<a href="https://mkastoryano.com/">Michael J. Kastoryano</a>, 
+					<a href="https://sergebelongie.github.io/"> Serge Belongie</a>,
+					<a href="https://vesteinn.is/"> Vésteinn Snæbjarnarson</a>
+				</p>
+				<p class="publish"><em>Under review</em></p>
+				<a class="btn" href="https://github.com/sebulo/LoQT">
+					<i class="fab fas fa-globe-asia"></i>&nbsp Project page</a>
+				<a class="btn" href="https://github.com/sebulo/LoQT">
+					<i class="fab fa-github"></i>&nbsp Code</a>
+				<a class="btn" href="#">
+					<i class="fab fas fa-file-alt"></i>&nbsp Paper</a>
+				<p>
+					LoQT enables efficient quantized pre-training of LLMs with results close to full-rank non-quantized models. It enables pre-training of a 13B LLM on a 24GB GPU without model parallel, checkpointing, or offloading strategies during training.
+				</p>
+			</div>
+		</div>
+		
+		<script>
+			function switchImage(newSrc) {
+				document.getElementById("loqt-image").src = newSrc;
+			}
+		</script>
+	<br>
+
+	<!-- New publication entry for PuTT -->
+	<div class="row publication">
+		<div class="col-lg-4">
+			<img src="images/putt.png" alt="PuTT">
+		</div>
+		<div class="col-lg-8">
+			<p class="title">Coarse-To-Fine Tensor Trains for Compact and Robust Visual Representations</p>
+			<p class="author"><strong> Sebastian Loeschcke, </strong>
+				<a href="https://danalaina.github.io/"> Dan Wang</a>,
+				 Christian Munklinde Leth-Espensen, 
+				<a href="https://sergebelongie.github.io/"> Serge Belongie</a>,
+				<a href="https://mkastoryano.com/">Michael J. Kastoryano</a>, 
+				<a href="https://sagiebenaim.github.io/"> Sagie Benaim</a>,
+			</p>
+			<p class="publish"><em>ICML 2024</em></p>
+			<a class="btn" href="MISSING">
+				<i class="fab fas fa-globe-asia"></i>&nbsp Project page</a>
+			<a class="btn" href="CODE">
+				<i class="fab fa-github"></i>&nbsp Code</a>
+			<a class="btn" href="https://arxiv.org/abs/2024XXXXX">
+				<i class="fab fas fa-file-alt"></i>&nbsp Paper</a>
+			<p>
+				PuTT (Prolongation Upsampling Tensor Train), a method for learning a coarse-to-fine tensor train representation of visual data, excelling in 2D/3D fitting and novel view synthesis, even with noisy or incomplete data.
+			</p>
+		</div>
+	</div>
+	
+	<br>
 	
 		<div class="row publication">
 			<div class="col-lg-4">
@@ -113,8 +140,9 @@
                 A method for stylizing video objects in an intuitive and semantic manner following a user-specified text prompt.
               </p>
 		</div>
-		</div>
-
+		
+	</div>
+	<br>
 		<div class="row publication">
 			<div class="col-lg-4">
 				<img src='files/sax_paa_param_viz.gif'>
@@ -128,7 +156,7 @@
 				<p class="publish"><em>EuroVA</em>, 2020.  <font color="green"><strong>(Oral Presentation)</strong></font> </p>
 				<a class="btn" href="https://diglib.eg.org/handle/10.2312/eurova20201085/"> <i class="fab fas fa-file-alt"></i>&nbsp Paper</a>
 				<p>
-					We propose a task-driven parametrization of PAA and SAX through a parameter space visualization that shows the difference of progressively running a given analytic computation on the original and on the reduced data for a representative set of data samples.
+					Tool that uses progressive visual analytics to guide users in hyperparameter search for SAX and PAA algorithms.
 				</p>
 			</div>
 		</div>
